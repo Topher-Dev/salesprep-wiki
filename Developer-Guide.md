@@ -12,14 +12,14 @@ Welcome to the SalesPrep Developer's Guide. This document provides essential inf
      apt update && apt upgrade -y
      ```
 2. **Create an Admin User**
-   - To improve security and avoid using the root account, create a new admin user. This user will have complete access to the app and naming should follow the convention of appname(abbrev)_admin eg "fv_admin":
+   - To improve security and avoid using the root account, create a new admin user. This user will have complete access to the app and naming should follow the convention of appname(abbrev)_admin eg "sp_admin":
      ```bash
-     adduser fv_admin
+     adduser sp_admin
      ```
    - Follow the prompts to set a password and provide additional information.
    - Grant administrative privileges, add the new user to the `sudo` group:
      ```bash
-     usermod -aG sudo fv_admin
+     usermod -aG sudo sp_admin
      ```
    - You can now log out of the root account and log in with your new admin user.
 
@@ -57,7 +57,7 @@ Welcome to the SalesPrep Developer's Guide. This document provides essential inf
 6. **Clone the FightView Repository**
    - clone the repo
      ```bash
-     git clone git@github.com:Topher-Dev/fv.git
+     git clone git@github.com:Topher-Dev/salesprep.git
      ```
 
 After cloning the FightView repository, the next step is to set up your development environment by running the installation script included in the repository. This script will install all necessary dependencies, configure your environment, and prepare the application for use.
@@ -68,7 +68,7 @@ After cloning the FightView repository, the next step is to set up your developm
 1. **Execute the Install Script**
    - navigate into the repo and run the install script with the  `full` argument to start the installation and configuration process.
      ```bash
-     cd fv;
+     cd salesprep;
      sudo sbin/install.sh full
      ```
      - Respond to prompts for necessary configuration details:
@@ -82,36 +82,15 @@ After cloning the FightView repository, the next step is to set up your developm
      sudo sbin/system.sh
      ```
 
-By following these steps, you will have set up the core infrastructure and environment necessary for developing the FightView application. This process ensures that all developers have a standardized setup, minimizing compatibility issues and streamlining the development workflow.
+#### Branches
+
+1. **master**
+   - Production branch, only updated by merging from a develop branch
 
 
-## Code Contribution Guidelines
-- Use Git for version control. Clone the project repository to your local machine for development.
-- Set up the local development server with Apache2 and configure it to serve the FightView application.
-- Install PostgreSQL and create a local database that mirrors the production schema for testing.
+2. **develop**
+   - Contains updates / upgrades
 
-## Code Contribution Guidelines
 
-### Workflow
-- **Branch Naming**: Feature or bug branches should follow the naming convention `feature/<feature-name>` or `bugfix/<bug-description>`.
-- **Pull Requests**: Submit pull requests (PRs) against the `develop` branch. Ensure your PRs are well-documented and include any necessary tests.
 
-### Coding Standards
-- Adhere to the snake_case naming convention for PHP and JavaScript files.
-- Write clean, maintainable code and follow the established patterns in the project.
-- Ensure code compatibility with PHP 7.4 and above.
 
-### Testing
-- Write unit and integration tests for all new features and bug fixes.
-- Utilize PostgreSQL for database-related testing.
-- Test your changes locally before submitting a PR to ensure stability and compatibility.
-
-## Documentation
-- Update the wiki with any new features or changes to the development process.
-- Document any new code, especially APIs and interfaces, to maintain clarity and ease of use for other developers.
-
-## Community and Support
-- Join our development discussions on [platform-specific communication tool].
-- For help or questions, refer to the "Support" section or reach out to the community.
-
-This guide is a starting point for contributing to FightView. By following these guidelines, you'll help maintain the quality and consistency of the codebase and contribute to the project's overall success.
